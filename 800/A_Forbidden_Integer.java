@@ -10,39 +10,50 @@ public class A_Forbidden_Integer {
             int n = s.nextInt();
             int k = s.nextInt();
             int x = s.nextInt();
-            if(x==1 && k==1){
-                System.out.println("NO");
-                continue;
-            }
-            int max = k;
-            while(max==x){
-                max--;
-            }
-            int mul = n/max;
-            int rem = n-(max*mul);
-            if(rem!=x){
+            if(x!=1){
                 System.out.println("YES");
-                System.out.println(mul+1);
-                for(int j =0;j<mul;j++){
-                    System.out.print(max + " ");
+                System.out.println(n);
+                for(int j = 0;j<n;j++){
+                    System.out.print(1 + " ");
                 }
-                System.out.print(rem);
                 System.out.println();
-            }else if(rem==x && x==1){
-                rem+=max;
-                mul--;
-                if(rem%2!=0 && k>2){
-                    int oddmul = rem/3;
-                    int oddrem = rem - (3*oddmul);
-                    System.out.println("YES");
-                    System.out.println(mul+oddmul+);
-
-                }else if (rem%2!=0 && k<3){
+            }else{
+                if(k==1){
                     System.out.println("NO");
                     continue;
                 }
+                if(k==2){
+                    if(n%2==0){
+                        System.out.println("YES");
+                        System.out.println(n/2);
+                        for(int j = 0;j<n/2;j++){
+                            System.out.print(2 + " ");
+                        }
+                        System.out.println();
+                    }else{
+                        System.out.println("NO");
+                    }
+                }
+                if(k>2){
+                    if(n%2==0){
+                        System.out.println("YES");
+                        System.out.println(n/2);
+                        for(int j = 0;j<n/2;j++){
+                            System.out.print(2 + " ");
+                        }
+                        System.out.println();
+                    }else{
+                        System.out.println("YES");
+                        System.out.println(n/2);
+                        int a = n/2 - 1;
+                        for(int j = 0;j<a;j++){
+                            System.out.print(2 + " ");
+                        }
+                        System.out.print(3);
+                        System.out.println();
+                    }
+                }
             }
-
         }
         s.close();
     }
